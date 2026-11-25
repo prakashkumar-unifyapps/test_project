@@ -1,2 +1,7 @@
 rumps>=0.4.0
-pyobjc-framework-Quartz>=10.0
+# PyObjC 12 dropped Python 3.9 (the Python that ships with Xcode), but old pip still
+# picks its source release and fails to compile it. Stay on 11.x there.
+pyobjc-core>=10.0,<12; python_version < "3.10"
+pyobjc-framework-Cocoa>=10.0,<12; python_version < "3.10"
+pyobjc-framework-Quartz>=10.0,<12; python_version < "3.10"
+pyobjc-framework-Quartz>=10.0; python_version >= "3.10"
